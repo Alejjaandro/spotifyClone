@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+
   mainMenu: {
     defaultOptions: Array<any>, 
     accessLink: Array<any>
@@ -18,28 +19,27 @@ export class SideBarComponent {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/']
       },
       {
-        name: 'Buscar',
+        name: 'Search',
         icon: 'uil uil-search',
         router: ['/', 'history']
       },
       {
-        name: 'Tu biblioteca',
+        name: 'Your Library',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
       }
     ]
 
     this.mainMenu.accessLink = [
       {
-        name: 'Crear lista',
+        name: 'Create List',
         icon: 'uil uil-plus-square'
       },
       {
-        name: 'Canciones que te gustan',
+        name: 'Liked Songs',
         icon: 'uil uil-heart-medical'
       }
     ]
@@ -63,4 +63,6 @@ export class SideBarComponent {
       }
     ]
 
-  }}
+  }
+
+}
