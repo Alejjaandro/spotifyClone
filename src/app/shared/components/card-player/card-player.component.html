@@ -1,6 +1,8 @@
 <!-- Model design (small)-->
 <div *ngIf="mode==='small'" class="card-player player-small">
-    <img [src]="track.cover" [alt]="track.name" class="cover">
+
+    <img appImgBroken [customImage]="'../../../../assets/dummyImage.jpg'" [src]="track.cover" [alt]="track.name" class="cover">
+
     <div class="content-player">
         {{track.name}}
     </div>
@@ -17,7 +19,7 @@
 <!-- Model design (big)-->
 <div *ngIf="mode==='big'" class="card-player player-big">
 
-    <img [src]="track.cover" alt="" class="cover">
+    <img appImgBroken [customImage]="'../../../../assets/dummyImage.jpg'" [src]="track.cover" alt="" class="cover">
 
     <div class="content-player">
         <div class="title-track">{{track.name}}</div>
