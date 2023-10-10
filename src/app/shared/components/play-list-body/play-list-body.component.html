@@ -1,0 +1,36 @@
+<div class="play-list-body">
+    <ul class="play-list-table-header">
+        <li>Name ❤</li>
+        <li>Album 🆗</li>
+        <li>Added Date 🍌😁</li>
+        <li><i class="uil uil-clock-eight"></i></li>
+    </ul>
+    <ul class="play-list-rows" *ngFor="let track of tracks">
+        <li class="track-name">
+            <ng-container *ngTemplateOutlet="coverSection; context: {property: track}"></ng-container>
+        </li>
+        <li class="track-name-opacity">
+            {{track.album}}
+        </li>
+        <li class="track-name-opacity">
+            {{track.album}}
+        </li>
+        <li class="track-name-opacity">
+            {{track.album}}
+        </li>
+
+    </ul>
+</div>
+
+<!--Cover Template-->
+<ng-template #coverSection let-property="property">
+
+    <div class="cover-section">
+        <img appImgBroken class="cover-track" [src]="property.cover" [alt]="property.name">
+        <div class="cover-info">
+            <div class="name-track">{{property.name}}</div>
+            <div class="name-track-details">{{property.artist.name}}</div>
+        </div>
+    </div>
+
+</ng-template>
