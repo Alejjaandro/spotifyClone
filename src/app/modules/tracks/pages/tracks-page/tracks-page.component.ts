@@ -12,31 +12,24 @@ export class TracksPageComponent {
 
   trendingTracks: Array<TrackModel> = []
   randomTracks: Array<TrackModel> = []
-
   observersList$: Array<Subscription> = []
 
   constructor (private trackService: TrackService) {}
 
   ngOnInit(): void {
-    const observer$1 = this.trackService.dataTrendingTracks$.subscribe(
-      (response => {
-        this.trendingTracks = response
-        this.randomTracks = response
-        console.log('Trending tracks', response)
-      })
-    )
-
-    const observer$2 = this.trackService.dataRandomTracks$.subscribe(
-      (response => {
-        this.randomTracks = [...this.randomTracks, ...response]
-        console.log('Random tracks', response)
-      })
-    )
-
-    this.observersList$ = [observer$1, observer$2]
+    this.loadAllData()
+    this.loadRandomData()
   }
 
+  async loadAllData(): Promise<any> {
+    this.trendingTracks = await this.trackService.getAllTracks$().toPromise()
+  }
+
+  async loadRandomData(): Promise<any> {
+    this.randomTracks = await this.trackService.getRandomTracks$().toPromise()
+  }
+  
   ngOnDestroy(): void {
-    this.observersList$.forEach(sub => sub.unsubscribe())
+
   }
 }

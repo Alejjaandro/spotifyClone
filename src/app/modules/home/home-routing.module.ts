@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'history', // localhost:4200/history
     loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
+  },
+  {
+    path: '**', // 404, Route not found
+    redirectTo: '/tracks'
   }
 ];
 
