@@ -1,0 +1,5 @@
+<div class="search-component">
+    <input (ngModelChange)="callSearch($event)" [(ngModel)]="src" type="text" placeholder="Search for Artist, Song or Podcast">
+    <br>
+    <div>Result: {{src}}</div>
+</div>

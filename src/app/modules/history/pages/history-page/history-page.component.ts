@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TrackModel } from '@core/models/tracks.model';
+import { SearchServiceService } from '@modules/history/services/search-service.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-history-page',
@@ -7,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class HistoryPageComponent {
 
+  resultList$: Observable<any> = of([])
+
+  constructor(private searchService: SearchServiceService) {}
+
+  receiveData(event: string): void {
+    this.resultList$ = this.searchService.searchTracks$(event)
+  }
 }

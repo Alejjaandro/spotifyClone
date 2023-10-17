@@ -7,9 +7,6 @@ import { TrackModel } from '@core/models/tracks.model';
 export class OrderListPipe implements PipeTransform {
 
   transform(value: Array<any>, args: string | null = null, sort: string = 'asc'): TrackModel[] {
-    // console.log(value);
-    // console.log(args);
-    // console.log(sort);
 
     try {
       if (args === null) {
