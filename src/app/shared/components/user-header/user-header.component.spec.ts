@@ -8,8 +8,8 @@ describe('UserHeaderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserHeaderComponent]
-    });
+    imports: [UserHeaderComponent]
+});
     fixture = TestBed.createComponent(UserHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

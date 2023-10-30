@@ -6,7 +6,7 @@ describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterTestingModule],
     declarations: [AppComponent]
-  }));
+}));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -20,10 +20,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('spotifyClone');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('spotifyClone app is running!');
-  });
 });

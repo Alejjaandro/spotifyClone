@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: 'img[appImgBroken]'
+    selector: 'img[appImgBroken]',
+    standalone: true
 })
 export class ImgBrokenDirective {
 
@@ -9,7 +10,7 @@ export class ImgBrokenDirective {
 
   @HostListener('error') handleError(): void {
     const nativeElement = this.host.nativeElement
-    console.log('fasggsdfga -->', this.host);
+    console.log('This image is broken -->', this.host);
     nativeElement.src = this.customImage
   }
 

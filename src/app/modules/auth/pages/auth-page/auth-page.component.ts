@@ -1,13 +1,16 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { AuthService } from '@modules/auth/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-auth-page',
-  templateUrl: './auth-page.component.html',
-  styleUrls: ['./auth-page.component.css']
+    selector: 'app-auth-page',
+    templateUrl: './auth-page.component.html',
+    styleUrls: ['./auth-page.component.css'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf]
 })
 export class AuthPageComponent {
 
