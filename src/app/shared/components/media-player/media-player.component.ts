@@ -1,9 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
+import { Component, ElementRef, ViewChild, inject, DestroyRef } from '@angular/core';
 import { MultimediaService } from '@shared/services/multimedia.service';
-import { Subscription } from 'rxjs';
 import { NgTemplateOutlet, NgIf, NgClass, AsyncPipe } from '@angular/common';
-
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 @Component({
     selector: 'app-media-player',
     templateUrl: './media-player.component.html',
@@ -14,20 +12,16 @@ import { NgTemplateOutlet, NgIf, NgClass, AsyncPipe } from '@angular/common';
 export class MediaPlayerComponent {
 
   @ViewChild('progressBar') progressBar: ElementRef = new ElementRef('')
-  listObservers$: Array<Subscription> = []
+
   state: string = 'paused'
 
-  constructor(public multimediaService: MultimediaService) {  }
+  multimediaService = inject(MultimediaService)
+  destroyRef = inject(DestroyRef)
 
   ngOnInit(): void {
-    const observer1$ = this.multimediaService.playerStatus$
+    this.multimediaService.playerStatus$
+    .pipe(takeUntilDestroyed(this.destroyRef))
     .subscribe(status => this.state = status)
-
-    this.listObservers$ = [observer1$]
-  }
-
-  ngOnDestroy(): void {
-    this.listObservers$.forEach(sub => sub.unsubscribe())
   }
 
   handlePosition(event: MouseEvent): void {
