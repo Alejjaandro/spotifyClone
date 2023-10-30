@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -11,8 +10,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
 
   private readonly URL = "http://localhost:8000/api/1.0"
-
-  constructor(private http:HttpClient, private cookie: CookieService) { }
+  
+  private http = inject(HttpClient)
+  private cookie = inject(CookieService)
 
   sendCredentials(email: string, password: string): Observable<any> {
     const data = {email, password}

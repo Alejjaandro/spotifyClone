@@ -17,10 +17,6 @@ export class PlayListBodyComponent {
 
   optionSort: {property: string | null, order: string} = {property: null, order: 'asc'}
 
-  ngOnInit(): void {
-
-  }
-
   changeSort(property: string): void {
     const {order} = this.optionSort
     this.optionSort = {

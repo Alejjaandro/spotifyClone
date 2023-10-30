@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AuthService } from '@modules/auth/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -17,11 +17,9 @@ export class AuthPageComponent {
   errorSession: Boolean = false
   formLogin: FormGroup = new FormGroup({});
 
-  constructor(
-    private authService: AuthService, 
-    private cookie: CookieService,
-    private router: Router,
-  ) {}
+  private authService = inject(AuthService) 
+  private cookie = inject(CookieService)
+  private router = inject(Router)
 
   ngOnInit(): void {
     this.formLogin = new FormGroup(

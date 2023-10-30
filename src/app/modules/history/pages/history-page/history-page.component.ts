@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { SearchServiceService } from '@modules/history/services/search-service.service';
 import { Observable, of } from 'rxjs';
@@ -17,7 +17,7 @@ export class HistoryPageComponent {
 
   resultList$: Observable<any> = of([])
 
-  constructor(private searchService: SearchServiceService) {}
+  private searchService = inject(SearchServiceService)
 
   receiveData(event: string): void {
     this.resultList$ = this.searchService.searchTracks$(event)

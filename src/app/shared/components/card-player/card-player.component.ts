@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { ImgBrokenDirective } from '../../directives/img-broken.directive';
@@ -15,9 +15,7 @@ export class CardPlayerComponent {
   @Input() mode: 'small' | 'big' = 'small'
   @Input() track!: TrackModel
 
-  constructor(private multimediaService: MultimediaService) {
-
-  }
+  private multimediaService = inject(MultimediaService)
 
   sendPlay(track: TrackModel): void {
     this.multimediaService.trackInfo$.next(track)
