@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { TrackService } from '@modules/tracks/services/track.service';
 import { Subscription } from 'rxjs';
@@ -17,7 +17,7 @@ export class TracksPageComponent {
   randomTracks: Array<TrackModel> = []
   observersList$: Array<Subscription> = []
 
-  constructor (private trackService: TrackService) {}
+  private trackService = inject(TrackService)
 
   ngOnInit(): void {
     this.loadAllData()
@@ -30,9 +30,5 @@ export class TracksPageComponent {
 
   async loadRandomData(): Promise<any> {
     this.randomTracks = await this.trackService.getRandomTracks$().toPromise()
-  }
-  
-  ngOnDestroy(): void {
-
   }
 }

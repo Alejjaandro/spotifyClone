@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
@@ -11,7 +11,7 @@ export class TrackService {
   
   private readonly URL = "http://localhost:8000/api/1.0"
 
-  constructor(private httpClient: HttpClient) {}
+  private httpClient = inject(HttpClient)
 
   private skipById(trackList: TrackModel[], id: number): Promise<TrackModel[]> {
     return new Promise((resolve, reject) => {

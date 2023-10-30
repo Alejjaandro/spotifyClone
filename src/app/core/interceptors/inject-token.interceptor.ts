@@ -1,36 +1,26 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import {HttpRequest, HttpHandlerFn} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
-@Injectable()
-export class InjectTokenInterceptor implements HttpInterceptor {
+export const authInterceptor = (request: HttpRequest<unknown>, next: HttpHandlerFn) => {
 
-  
-  constructor(private cookieService: CookieService) {}
-  
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    try {
-      const token = this.cookieService.get('token')
-      let newRequest = request
-      newRequest = request.clone(
-        {
-          setHeaders: {
-            authorization: `Bearer ${token}`
-          }
+  const cookieService = inject(CookieService)
+
+  try {
+    const token = cookieService.get('token')
+    let newRequest = request
+    newRequest = request.clone(
+      {
+        setHeaders: {
+          authorization: `Bearer ${token}`
         }
-      )
-      
-      return next.handle(newRequest)
+      }
+    )
 
-    } catch (error) {
-      console.log('Something went wrong', error)
-      return next.handle(request)
-    }
+    return next(newRequest)
+
+  } catch (error) {
+    console.log('Something went wrong', error)
+    return next(request)
   }
 }
