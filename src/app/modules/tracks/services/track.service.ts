@@ -9,7 +9,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 })
 export class TrackService {
   
-  private readonly URL = "http://localhost:8000/api/1.0"
+  private readonly URL = "http://localhost:8000"
 
   private httpClient = inject(HttpClient)
 
@@ -21,8 +21,8 @@ export class TrackService {
   }
 
   getAllTracks$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/tracks`).pipe(
-      map(({ data }: any) => { return data }),
+    return this.httpClient.get(`${this.URL}/tracks`)
+    .pipe( map( (response: any) => { return response } ),
       catchError((error) => {
         console.log('Something went wrong', error)
         return of([])
@@ -31,12 +31,13 @@ export class TrackService {
   }
 
   getRandomTracks$(): Observable<any> {
-    return this.httpClient.get(`${this.URL}/tracks`).pipe(
-      mergeMap(({ data }: any) => this.skipById(data, 1)),
+    return this.httpClient.get(`${this.URL}/tracks`)
+    .pipe( mergeMap( (response: any) => this.skipById(response, 1) ),
       catchError((error) => {
         console.log('Something went wrong', error)
         return of([])
       })
     )
   }
+
 }
