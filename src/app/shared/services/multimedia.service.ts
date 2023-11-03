@@ -91,10 +91,7 @@ export class MultimediaService {
     this.timeRemaining$.next(displayFormat)
   }
 
-  public setAudio(track: TrackModel): void {
-    console.log(track);
-    console.log(this.audio.src);
-    
+  public setAudio(track: TrackModel): void {   
     this.audio.src = track.url
     this.audio.play()
   }
