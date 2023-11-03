@@ -6,14 +6,14 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchServiceService {
-  private readonly URL = "http://localhost:8000/api/1.0"
+  private readonly URL = "http://localhost:8000"
 
   private httpClient = inject(HttpClient)
 
   searchTracks$(term: any): Observable<any> {
     return this.httpClient.get(`${this.URL}/tracks?src=${term}`)
     .pipe(
-      map((dataRaw: any) => dataRaw.data)
+      map((response: any) => response)
     )
   }
 

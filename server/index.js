@@ -22,6 +22,8 @@ app.use(morgan('dev'));
 
 app.use(express.json());
 
+app.use(express.static('public'));
+
 // ========== ENDPOINTS ========== //
 // Importing endpoints.
 import authRoutes from './routes/auth.js';
