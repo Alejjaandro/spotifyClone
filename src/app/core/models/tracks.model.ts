@@ -7,4 +7,5 @@ export interface TrackModel {
     url: string;
     _id: string | number;
     artist?: ArtistModel;
+    favorite: boolean;
 }

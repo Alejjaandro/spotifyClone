@@ -18,6 +18,8 @@ export class CardPlayerComponent {
   private multimediaService = inject(MultimediaService)
 
   sendPlay(track: TrackModel): void {
+    if(localStorage.getItem(track.name)) track.favorite = true
+    
     this.multimediaService.trackInfo$.next(track)
   }
 }

@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, inject, DestroyRef } from '@angular/c
 import { MultimediaService } from '@shared/services/multimedia.service';
 import { NgTemplateOutlet, NgIf, NgClass, AsyncPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { TrackModel } from '@core/models/tracks.model';
 @Component({
     selector: 'app-media-player',
     templateUrl: './media-player.component.html',
@@ -18,6 +19,8 @@ export class MediaPlayerComponent {
   multimediaService = inject(MultimediaService)
   destroyRef = inject(DestroyRef)
 
+  allTracks: Array<TrackModel> = []
+
   ngOnInit(): void {
     this.multimediaService.playerStatus$
     .pipe(takeUntilDestroyed(this.destroyRef))
@@ -31,5 +34,16 @@ export class MediaPlayerComponent {
     const clickX = clientX - x
     const percentageFromX = (clickX * 100) / width
     this.multimediaService.seekAudio(percentageFromX)
+  }
+
+  toogleFavorites = (track: TrackModel) => {
+    if(track.favorite) {
+      track.favorite = !track.favorite
+      localStorage.removeItem(track.name)
+    } else {
+      track.favorite = !track.favorite
+      console.log(track.favorite)
+      localStorage.setItem(track.name, track.name)
+    }
   }
 }

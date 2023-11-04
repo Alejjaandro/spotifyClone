@@ -20,7 +20,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track.mp3`
+            "url": `${process.env.URL_PUBLIC}/track.mp3`,
+            "favorite": false
         },
         {
             "_id": 2,
@@ -36,7 +37,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-1.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-1.mp3`,
+            "favorite": false
         },
         {
             "_id": 3,
@@ -52,7 +54,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-2.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-2.mp3`,
+            "favorite": false
         },
         {
             "_id": 4,
@@ -68,7 +71,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-3.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-3.mp3`,
+            "favorite": false
         },
         {
             "_id": 5,
@@ -84,7 +88,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-4.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-4.mp3`,
+            "favorite": false
         },
         {
             "_id": 6,
@@ -100,7 +105,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-5.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-5.mp3`,
+            "favorite": false
         },
         {
             "_id": 7,
@@ -116,7 +122,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-6.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-6.mp3`,
+            "favorite": false
         },
         {
             "_id": 8,
@@ -132,7 +139,8 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-7.mp3`
+            "url": `${process.env.URL_PUBLIC}/track-7.mp3`,
+            "favorite": false
         }]
 
         res.status(200).json(allTracks);
