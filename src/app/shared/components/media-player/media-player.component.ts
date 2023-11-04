@@ -36,7 +36,7 @@ export class MediaPlayerComponent {
     this.multimediaService.seekAudio(percentageFromX)
   }
 
-  toogleFavorites = (track: TrackModel) => {
+  toggleFavorites = (track: TrackModel) => {
     if(track.favorite) {
       track.favorite = !track.favorite
       localStorage.removeItem(track.name)

@@ -26,7 +26,7 @@
             <h5 class="track-title sub-title">{{mockCover.album}}</h5>
         </div>
         <div class="track-like">
-            <button (click)="toogleFavorites(mockCover)" class="btn-like">
+            <button (click)="toggleFavorites(mockCover)" class="btn-like">
                 <i *ngIf="!mockCover.favorite" class="uil uil-heart"></i>
                 <i *ngIf="mockCover.favorite" class="uil uil-heart icon-green"></i>
             </button>
