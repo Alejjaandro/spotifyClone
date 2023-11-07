@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CheckLocalStorageService } from '@shared/services/check-local-storage.service';
 
 @Component({
     selector: 'app-play-list-header',
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
     standalone: true
 })
 export class PlayListHeaderComponent {
+    
+    public favoriteSongs: number = 0
+    checkLocalStorage = inject(CheckLocalStorageService)
 
+    ngOnInit(): void {
+        this.checkLocalStorage.watchStorage().subscribe(() => {
+            this.favoriteSongs = localStorage.length
+        })
+    }
 }

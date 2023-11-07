@@ -4,8 +4,6 @@ import { OrderListPipe } from '../../pipes/order-list.pipe';
 import { ImgBrokenDirective } from '../../directives/img-broken.directive';
 import { NgFor, NgTemplateOutlet } from '@angular/common';
 import { FilterTracksService } from './services/filter-tracks.service';
-import { TrackService } from '@modules/tracks/services/track.service';
-import { filter, fromEvent, map } from 'rxjs';
 import { CheckLocalStorageService } from '../../services/check-local-storage.service';
 
 @Component({
