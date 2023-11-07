@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track.mp3`,
             "favorite": false
         },
         {
@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-1.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-1.mp3`,
             "favorite": false
         },
         {
@@ -53,7 +53,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-2.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-2.mp3`,
             "favorite": false
         },
         {
@@ -70,7 +70,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-3.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-3.mp3`,
             "favorite": false
         },
         {
@@ -87,7 +87,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-4.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-4.mp3`,
             "favorite": false
         },
         {
@@ -104,7 +104,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-5.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-5.mp3`,
             "favorite": false
         },
         {
@@ -121,7 +121,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-6.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-6.mp3`,
             "favorite": false
         },
         {
@@ -138,7 +138,7 @@ router.get("/", async (req, res) => {
                 "start": 0,
                 "end": 333
             },
-            "url": `${process.env.URL_PUBLIC}/track-7.mp3`,
+            "url": `https://alejjaandro-spotify-clone-api.vercel.app/track-7.mp3`,
             "favorite": false
         }]
 
