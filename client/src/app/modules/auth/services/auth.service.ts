@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class AuthService {
 
-  private readonly URL = "http://localhost:8000"
+  private readonly URL = "https://alejjaandro-spotify-clone-api.vercel.app"
   
   private http = inject(HttpClient)
   private cookie = inject(CookieService)

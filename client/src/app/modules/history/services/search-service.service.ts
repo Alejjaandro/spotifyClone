@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchServiceService {
-  private readonly URL = "http://localhost:8000"
+  private readonly URL = "https://alejjaandro-spotify-clone-api.vercel.app"
 
   private httpClient = inject(HttpClient)
 
