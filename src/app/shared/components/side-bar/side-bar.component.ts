@@ -31,22 +31,10 @@ export class SideBarComponent {
         router: ['/', 'history']
       },
       {
-        name: 'Your Library',
-        icon: 'uil uil-chart',
+        name: 'Liked Songs',
+        icon: 'uil uil-heart-medical',
         router: ['/', 'favorites'],
       }
     ]
-
-    this.mainMenu.accessLink = [
-      {
-        name: 'Create List',
-        icon: 'uil uil-plus-square'
-      },
-      {
-        name: 'Liked Songs',
-        icon: 'uil uil-heart-medical'
-      }
-    ]
   }
-
 }

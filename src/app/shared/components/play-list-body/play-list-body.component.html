@@ -5,7 +5,7 @@
         <li>Added Date</li>
         <li><i class="uil uil-clock-eight"></i></li>
     </ul>
-    <ul class="play-list-rows" *ngFor="let track of tracks |orderList: optionSort.property: optionSort.order">
+    <ul class="play-list-rows" *ngFor="let track of likedSongs |orderList: optionSort.property: optionSort.order">
         <li class="track-name">
             <ng-container *ngTemplateOutlet="coverSection; context: {property: track}"></ng-container>
         </li>

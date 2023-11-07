@@ -3,6 +3,7 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 import { NgTemplateOutlet, NgIf, NgClass, AsyncPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { TrackModel } from '@core/models/tracks.model';
+import { CheckLocalStorageService } from '@shared/services/check-local-storage.service';
 @Component({
     selector: 'app-media-player',
     templateUrl: './media-player.component.html',
@@ -17,6 +18,7 @@ export class MediaPlayerComponent {
   state: string = 'paused'
 
   multimediaService = inject(MultimediaService)
+  checkLocalStorage = inject(CheckLocalStorageService)
   destroyRef = inject(DestroyRef)
 
   allTracks: Array<TrackModel> = []
@@ -39,11 +41,10 @@ export class MediaPlayerComponent {
   toggleFavorites = (track: TrackModel) => {
     if(track.favorite) {
       track.favorite = !track.favorite
-      localStorage.removeItem(track.name)
+      this.checkLocalStorage.removeItem(track.name)
     } else {
       track.favorite = !track.favorite
-      console.log(track.favorite)
-      localStorage.setItem(track.name, track.name)
+      this.checkLocalStorage.setItem(track.name, track.name)
     }
   }
 }
