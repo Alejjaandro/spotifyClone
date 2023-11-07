@@ -18,6 +18,5 @@ export class SearchComponent {
     if(term.length >= 3) {
       this.callbackData.emit(term)
     }
-    
   }
 }

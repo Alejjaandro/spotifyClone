@@ -3,7 +3,7 @@ import { MultimediaService } from '@shared/services/multimedia.service';
 import { NgTemplateOutlet, NgIf, NgClass, AsyncPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { TrackModel } from '@core/models/tracks.model';
-import { CheckLocalStorageService } from '@shared/services/check-local-storage.service';
+import { CheckLocalStorageService } from '@modules/favorites/services/check-local-storage.service';
 @Component({
     selector: 'app-media-player',
     templateUrl: './media-player.component.html',

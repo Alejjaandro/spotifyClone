@@ -5,7 +5,6 @@ const router = Router();
 
 router.get("/", async (req, res) => {
     try {
-        
         const allTracks = [{
             "_id": 1,
             "name": "Getting Over",
@@ -143,7 +142,20 @@ router.get("/", async (req, res) => {
             "favorite": false
         }]
 
-        res.status(200).json(allTracks);
+        const searchTerm = req.query.src;
+        let filteredTracks;
+
+        if(searchTerm) {
+            filteredTracks = allTracks.filter(track => {
+                return track.name
+                .toLocaleLowerCase()
+                .includes(searchTerm.toLocaleLowerCase());
+            });
+            console.log(filteredTracks);
+            return res.status(200).json(filteredTracks);
+        }
+
+        return res.status(200).json(allTracks);
 
     } catch (error) {
         return res.status(500).json(error);

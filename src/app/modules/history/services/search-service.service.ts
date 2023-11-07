@@ -11,10 +11,14 @@ export class SearchServiceService {
   private httpClient = inject(HttpClient)
 
   searchTracks$(term: any): Observable<any> {
+    console.log(term)
+  
     return this.httpClient.get(`${this.URL}/tracks?src=${term}`)
-    .pipe(
-      map((response: any) => response)
+    .pipe(      
+      map((response: any) => {
+        console.log(response)
+        return response
+      })
     )
   }
-
 }

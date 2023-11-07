@@ -1,10 +1,8 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { OrderListPipe } from '../../pipes/order-list.pipe';
 import { ImgBrokenDirective } from '../../directives/img-broken.directive';
 import { NgFor, NgTemplateOutlet } from '@angular/common';
-import { FilterTracksService } from './services/filter-tracks.service';
-import { CheckLocalStorageService } from '../../services/check-local-storage.service';
 
 @Component({
   selector: 'app-play-list-body',
@@ -15,26 +13,9 @@ import { CheckLocalStorageService } from '../../services/check-local-storage.ser
 })
 export class PlayListBodyComponent {
 
-  filterTracks = inject(FilterTracksService)
-  checkLocalStorage = inject(CheckLocalStorageService)
   @Input() tracks: Array<TrackModel> = []
 
-  likedSongs: Array<TrackModel> = []
-
   optionSort: { property: string | null, order: string } = { property: null, order: 'asc' }
-
-  ngOnInit(): void {
-    this.checkLocalStorage.watchStorage().subscribe(() => {
-      this.getFavorites()
-    })
-  }
-
-  getFavorites = () => {
-    const songsInStorage = [...Object.values(localStorage)]
-    this.filterTracks.getFavoritesTracks$(songsInStorage).subscribe((result: any) => {
-      this.likedSongs = result
-    })
-  }
 
   changeSort(property: string): void {
     const { order } = this.optionSort
