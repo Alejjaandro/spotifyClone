@@ -5,10 +5,10 @@ import express from 'express';
 const app = express();
 
 // dotenv to access .env files that contains vital info.
-// import dotenv from 'dotenv';
-// dotenv.config({
-//     path: './.env'
-// });
+import dotenv from 'dotenv';
+dotenv.config({
+    path: './.env'
+});
 
 // cors to allow access the api from any origin.
 import cors from 'cors';
@@ -29,15 +29,15 @@ import authRoutes from './routes/auth.js';
 import tracksRoutes from './routes/tracks.js';
 
 // Using the endpoints. We stablish some prefix for organization.
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Successfully connected!");
 });
 
 app.use('/auth', authRoutes);
 app.use('/tracks', tracksRoutes);
 
-// const PORT = process.env.PORT;
-// const URL = process.env.URL_PUBLIC;
+const PORT = process.env.PORT;
+const URL = process.env.URL_PUBLIC;
 app.listen(8000, () => {
     console.log(`Backend running at https://alejjaandro-spotify-clone-api.vercel.app`);
 });
