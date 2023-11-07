@@ -9,7 +9,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 })
 export class TrackService {
   
-  private readonly URL = "http://localhost:8000"
+  private readonly URL = "http://alejjaandro-spotify-clone-api.vercel.app"
 
   private httpClient = inject(HttpClient)
 
