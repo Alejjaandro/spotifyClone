@@ -16,7 +16,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 app.use(cors({
-    origin: "https://alejjaandro-spotify-clone.vercel.app",
+    origin: ["https://alejjaandro-spotify-clone.vercel.app", "http://localhost:8000"],
+    methods: "GET, PUT, POST, DELETE",
+    allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200
 }));
 
