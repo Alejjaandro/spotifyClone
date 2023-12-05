@@ -2,9 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
-## Development server
+## Authorization
+### To log in enter:  
+Email: test@test.com  
+Password: 12345678
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Run Client
+Go to the client directory and run 
+```
+ng serve
+```  
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Run Server
+Go to the server directory and run 
+```
+npm start
+```  
+Navigate to `http://localhost:8000/`. The application will automatically reload if you change any of the source code.
 
 ## Code scaffolding
 
