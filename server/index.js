@@ -15,12 +15,7 @@ import cors from 'cors';
 
 import morgan from 'morgan';
 
-app.use(cors({
-    origin: ["https://alejjaandro-spotify-clone.vercel.app", "http://localhost:8000"],
-    methods: "GET, PUT, POST, DELETE",
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200
-}));
+app.use(cors());
 
 app.use(morgan('dev'));
 
@@ -40,6 +35,12 @@ app.get("/", (req, res) => {
 
 app.use('/auth', authRoutes);
 app.use('/tracks', tracksRoutes);
+
+// CORS Middleware
+app.use((req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  });
 
 const PORT = process.env.PORT;
 const URL = process.env.URL_PUBLIC;
