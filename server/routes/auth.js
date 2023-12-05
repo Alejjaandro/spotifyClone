@@ -49,7 +49,8 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     try {
-
+        console.log(req.body);
+        
         if(req.body.email !== "test@test.com") return res.status(401).json({ message: ["Wrong email"] })
 
         // We compare the password received from the body with the one in the database.

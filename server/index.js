@@ -15,7 +15,10 @@ import cors from 'cors';
 
 import morgan from 'morgan';
 
-app.use(cors());
+app.use(cors({
+    origin: "https://alejjaandro-spotify-clone.vercel.app",
+    optionsSuccessStatus: 200
+}));
 
 app.use(morgan('dev'));
 
