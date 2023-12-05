@@ -36,12 +36,6 @@ app.get("/", (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/tracks', tracksRoutes);
 
-// CORS Middleware
-app.use((req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  });
-
 const PORT = process.env.PORT;
 const URL = process.env.URL_PUBLIC;
 app.listen(8000, () => {
